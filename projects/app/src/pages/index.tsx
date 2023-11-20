@@ -21,6 +21,9 @@ const Home = ({ homeUrl = '/' }: { homeUrl: string }) => {
   useEffect(() => {
     router.prefetch('/app/list');
     router.prefetch('/login');
+
+    // jump to app at home page
+    router.push('/app/list');
   }, [router]);
 
   return (
@@ -30,17 +33,11 @@ const Home = ({ homeUrl = '/' }: { homeUrl: string }) => {
           <Navbar />
         </Box>
         <Box maxW={'1200px'} pt={'70px'} m={'auto'}>
-          <Hero />
-          <Ability />
-          <Box my={[4, 6]}>
-            <Choice />
-          </Box>
+          {/*<Hero />*/}
+          {/*<Ability />*/}
+          <Box my={[4, 6]}>{/*<Choice />*/}</Box>
         </Box>
-        {feConfigs?.show_git && (
-          <Box bg={'white'}>
-            <Footer />
-          </Box>
-        )}
+        {feConfigs?.show_git && <Box bg={'white'}>{/*<Footer />*/}</Box>}
       </Box>
       {homeUrl !== '/' && <Loading bg={'white'} />}
     </>
